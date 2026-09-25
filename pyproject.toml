@@ -4,7 +4,8 @@ build-backend = "maturin"
 
 [project]
 name = "zerochannel"
-version = "0.1.0"
+# Sourced from zerochannel/Cargo.toml by maturin so the two cannot drift.
+dynamic = ["version"]
 description = "Lock-free single-writer multi-reader shared-memory channel for inter-process communication"
 readme = "README.md"
 license = { text = "MIT" }
@@ -22,14 +23,15 @@ classifiers = [
 keywords = ["ipc", "shared-memory", "lock-free", "channel"]
 
 [project.urls]
-Repository = "https://github.com/your-org/zerochannel"
+Repository = "https://github.com/dexman-ai/zerochannel"
 
 # ---------------------------------------------------------------------------
 # Maturin configuration
 # ---------------------------------------------------------------------------
 [tool.maturin]
-# Pure-python source that ends up in site-packages/zerochannel/
-python-source = "."
+# No `python-source`: there are no pure-Python sources, and pointing it at the
+# repo root would make maturin treat the `zerochannel/` Rust crate directory as
+# a Python package and sweep its contents into the wheel.
 # The compiled extension is the `zerochannel` package.
 # The last component must match the `#[pymodule]` function in
 # zerochannel/src/python/mod.rs, since PyO3 derives the `PyInit_zerochannel`

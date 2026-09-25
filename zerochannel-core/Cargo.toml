@@ -3,6 +3,11 @@ name = "zerochannel-core"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
 description = "no_std core of the ZeroChannel lock-free single-writer multi-reader channel"
 
 # Deliberately dependency-free. Everything here operates on a caller-supplied

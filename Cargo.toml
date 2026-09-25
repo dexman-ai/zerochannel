@@ -6,3 +6,10 @@ members = ["zerochannel-core", "zerochannel"]
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
+# `usize::is_multiple_of` stabilised in 1.87; without this, Cargo would resolve
+# these crates for older toolchains and only fail at compile time.
+rust-version = "1.87"
+repository = "https://github.com/dexman-ai/zerochannel"
+readme = "README.md"
+keywords = ["ipc", "shared-memory", "lock-free", "channel"]
+categories = ["concurrency", "os", "no-std"]

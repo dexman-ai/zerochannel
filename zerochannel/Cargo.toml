@@ -3,6 +3,11 @@ name = "zerochannel"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+readme.workspace = true
+keywords.workspace = true
+categories.workspace = true
 description = "Lock-free single-writer multi-reader shared-memory channel"
 
 [lib]
