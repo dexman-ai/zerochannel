@@ -23,7 +23,7 @@ extension-module = ["python", "pyo3/extension-module"]
 
 [dependencies]
 # The dependency-free `no_std` ring protocol this crate maps into memory.
-zerochannel-core = { path = "../zerochannel-core" }
+zerochannel-core = { path = "../zerochannel-core", version = "0.1.0" }
 shared_memory = "0.12"
 # abi3-py311, not py39: `__getbuffer__`/`__releasebuffer__` are only exposed by
 # the limited API from 3.11 on, and the zero-copy handles need them to refuse
