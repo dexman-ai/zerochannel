@@ -1,0 +1,10 @@
+[package]
+name = "zerochannel-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "no_std core of the ZeroChannel lock-free single-writer multi-reader channel"
+
+# Deliberately dependency-free. Everything here operates on a caller-supplied
+# mapping, so the crate has nothing to say about how that mapping came to be.
+[dependencies]

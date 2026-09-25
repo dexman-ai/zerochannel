@@ -1,0 +1,51 @@
+[build-system]
+requires = ["maturin>=1.7,<2"]
+build-backend = "maturin"
+
+[project]
+name = "zerochannel"
+version = "0.1.0"
+description = "Lock-free single-writer multi-reader shared-memory channel for inter-process communication"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: System :: Operating System Kernels",
+]
+keywords = ["ipc", "shared-memory", "lock-free", "channel"]
+
+[project.urls]
+Repository = "https://github.com/your-org/zerochannel"
+
+# ---------------------------------------------------------------------------
+# Maturin configuration
+# ---------------------------------------------------------------------------
+[tool.maturin]
+# Pure-python source that ends up in site-packages/zerochannel/
+python-source = "."
+# The compiled extension is the `zerochannel` package.
+# The last component must match the `#[pymodule]` function in
+# zerochannel/src/python/mod.rs, since PyO3 derives the `PyInit_zerochannel`
+# symbol CPython looks for from it.
+module-name = "zerochannel"
+manifest-path = "zerochannel/Cargo.toml"
+
+# Extra data files to bundle into the wheel.
+# data = "wheel_data"
+
+# Build a native Python extension (.so/.pyd) with PyO3.
+bindings = "pyo3"
+features = ["extension-module"]
+
+# Rust targets for CI matrix builds (documented here for reference):
+# linux-x86_64   = x86_64-unknown-linux-gnu
+# linux-aarch64  = aarch64-unknown-linux-gnu
+# windows-x86_64 = x86_64-pc-windows-msvc
+# windows-aarch64 = aarch64-pc-windows-msvc  (future)

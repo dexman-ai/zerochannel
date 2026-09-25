@@ -1,0 +1,38 @@
+[package]
+name = "zerochannel"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Lock-free single-writer multi-reader shared-memory channel"
+
+[lib]
+# `rlib` for Rust consumers, `cdylib` for the Python extension module.
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# The PyO3 bindings are optional so a Rust-only consumer can depend on the
+# channel without pulling the Python toolchain into its build graph.
+default = []
+python = ["dep:pyo3", "dep:numpy"]
+extension-module = ["python", "pyo3/extension-module"]
+
+[dependencies]
+# The dependency-free `no_std` ring protocol this crate maps into memory.
+zerochannel-core = { path = "../zerochannel-core" }
+shared_memory = "0.12"
+# abi3-py311, not py39: `__getbuffer__`/`__releasebuffer__` are only exposed by
+# the limited API from 3.11 on, and the zero-copy handles need them to refuse
+# release while a caller still holds a view into the ring slot.
+pyo3 = { version = "0.28", features = ["abi3-py311"], optional = true }
+numpy = { version = "0.28", optional = true }
+
+# Liveness probing for the header's owner PIDs: a claim left behind by a
+# crashed process must be distinguishable from one held by a live peer.
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = [
+    "Win32_Foundation",
+    "Win32_System_Threading",
+] }

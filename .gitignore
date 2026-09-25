@@ -1,0 +1,52 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.whl
+*.egg
+.eggs/
+*.so
+*.pyd
+# MSVC debug symbols emitted next to the extension by debug builds.
+*.pdb
+
+# C/C++
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.dylib
+*.exe
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Maturin
+*.tar.gz
+
+# Wheel data (build artifact)
+wheel_data/
+
+# Test cache
+.pytest_cache/
