@@ -3,7 +3,7 @@ resolver = "2"
 members = ["zerochannel-core", "zerochannel"]
 
 [workspace.package]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 # `usize::is_multiple_of` stabilised in 1.87; without this, Cargo would resolve
