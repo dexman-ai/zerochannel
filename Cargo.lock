@@ -472,7 +472,7 @@ checksum = "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
 
 [[package]]
 name = "zerochannel"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "libc",
  "numpy",
@@ -484,7 +484,7 @@ dependencies = [
 
 [[package]]
 name = "zerochannel-core"
-version = "0.1.1"
+version = "0.1.2"
 
 [[package]]
 name = "zerocopy"
