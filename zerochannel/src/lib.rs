@@ -1,9 +1,10 @@
-//! ZeroChannel — lock-free Single-Writer Multi-Reader IPC over shared memory.
+//! ZeroChannel — lock-free shared-memory streaming and IPC for fixed-size
+//! producer/consumer data flows.
 //!
 //! The core abstractions are the generic [`Writer<T>`] and [`Reader<T>`], with
 //! concrete aliases per payload type ([`BytesWriter`], [`Float64Writer`], …),
-//! for high-performance inter-process communication using a circular buffer in
-//! POSIX/Windows shared memory.
+//! for high-throughput streaming and inter-process communication using a circular
+//! buffer in POSIX/Windows shared memory.
 //!
 //! This crate is the OS-facing half of ZeroChannel: it turns a channel *name*
 //! into a mapped segment, arbitrates segment ownership and the exclusive

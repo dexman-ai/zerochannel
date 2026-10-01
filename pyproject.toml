@@ -6,7 +6,7 @@ build-backend = "maturin"
 name = "zerochannel"
 # Sourced from zerochannel/Cargo.toml by maturin so the two cannot drift.
 dynamic = ["version"]
-description = "Lock-free single-writer multi-reader shared-memory channel for inter-process communication"
+description = "Lock-free shared-memory streaming and IPC for fixed-size producer/consumer data flows"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.11"
@@ -20,7 +20,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
     "Topic :: System :: Operating System Kernels",
 ]
-keywords = ["ipc", "shared-memory", "lock-free", "channel"]
+keywords = ["streaming", "ipc", "shared-memory", "lock-free", "channel", "telemetry"]
 
 [project.urls]
 Repository = "https://github.com/dexman-ai/zerochannel"

@@ -2,11 +2,11 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-High-performance, lock-free single-writer multi-reader (SWMR) inter-process communication (IPC) over shared memory. Implemented in Rust with Python bindings via PyO3.
+High-performance, lock-free, non-blocking single-writer multi-reader (SWMR) inter-process communication (IPC) over shared memory for fixed-size producer/consumer data flows. Enables lock-free, zero-copy streaming of camera frames, sensor feeds, and other high-throughput process pipelines.
 
 ## Overview
 
-**ZeroChannel** provides a fast, asynchronous, and safe IPC mechanism for passing fixed-size entries between processes using a circular buffer in shared memory. It offers two access paths:
+**ZeroChannel** provides a fast, asynchronous, and safe IPC mechanism for passing fixed-size entries between processes using a circular buffer in shared memory. The design is optimized for real-time data streams and other high-throughput producer/consumer workloads. It offers two access paths:
 
 - **One-copy**: Safe for any number of readers. Copies payload out of shared memory with a double read of sequence numbers.
 - **Zero-copy**: Borrow a ring slot in place without copying. The writer may acquire a writable slot, fill it in place, and commit it; the reader may acquire a pinned slot, inspect it in place, and release it after use.

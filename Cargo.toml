@@ -11,5 +11,5 @@ license = "MIT"
 rust-version = "1.87"
 repository = "https://github.com/dexman-ai/zerochannel"
 readme = "README.md"
-keywords = ["ipc", "shared-memory", "lock-free", "channel"]
+keywords = ["streaming", "ipc", "shared-memory", "lock-free", "channel", "telemetry"]
 categories = ["concurrency", "os", "no-std"]

@@ -8,7 +8,7 @@ repository.workspace = true
 readme.workspace = true
 keywords.workspace = true
 categories.workspace = true
-description = "Lock-free single-writer multi-reader shared-memory channel"
+description = "Lock-free shared-memory streaming and IPC for fixed-size producer/consumer data flows"
 
 [lib]
 # `rlib` for Rust consumers, `cdylib` for the Python extension module.
